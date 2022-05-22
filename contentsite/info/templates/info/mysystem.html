@@ -1,0 +1,41 @@
+{% extends "layout/base.html" %}
+{% block search_contents %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">序号</th>
+      <th scope="col">姓名</th>
+      <th scope="col">年龄</th>
+      <th scope="col">身高</th>
+    </tr>
+  </thead>
+{% for contact in page_obj %}
+    <tbody>
+     <tr>
+       <th scope="row">{{contact.id}}</th>
+       <td>{{contact.name}}</td>
+       <td>{{contact.age}}</td>
+       <td>{{contact.height}}</td>
+     </tr>
+    </tbody>
+{% endfor %}
+    </table>
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a class="btn btn-primary" href="?page=1" role="button">1</a>
+            <a class="btn btn-primary" href="?page={{ page_obj.previous_page_number }}" role="button">上一页</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a class="btn btn-primary" href="?page={{ page_obj.next_page_number }}" role="button">下一页</a>
+            <a class="btn btn-primary" href="?page={{ page_obj.paginator.num_pages }}" role="button">最后一页</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock %}

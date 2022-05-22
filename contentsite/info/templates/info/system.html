@@ -1,0 +1,53 @@
+{% extends "layout/base.html" %}
+{% block search_contents %}
+<div class="col-sm-12">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="col-sm-1"><span class="glyphicon glyphicon-th" aria-hidden="true"></span></div>
+            <div class="col-sm-8">类别 {{v_level}}</div>
+        </div>
+    </div>
+</div>
+    {% for contact in page_obj %}
+
+
+    <div class="col-sm-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-sm-6"><p><a href="detail/{{ contact.id }}/">{{contact.target_post}} {{contact.place}}</a></p></div>
+                <div class="col-sm-3"><p>{{contact.company_name}}</p></div>
+                <div class="col-sm-3"><p>{{contact.level_3}}</p></div>
+                <div class="col-sm-6"><p>{{contact.salary}} RMB</p></div>
+                <div class="col-sm-3"><p>经验要求 {{contact.exp_requirements}}</p></div>
+                <div class="col-sm-3"><p>学历要求 {{contact.edu_requirements}}</p></div>
+                <div class="col-sm-6"><p>更新日期 {{contact.release_date}}</p></div>
+                
+                
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="col-sm-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="pagination">
+                    <span class="step-links">
+                        {% if page_obj.has_previous %}
+                            <a class="btn btn-primary" href="?page=1&q={{ value }}" role="button">1</a>
+                            <a class="btn btn-primary" href="?page={{ page_obj.previous_page_number }}&q={{ value }}" role="button">上一页</a>
+                        {% endif %}
+
+                        <span class="current">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                        </span>
+
+                        {% if page_obj.has_next %}
+                            <a class="btn btn-primary" href="?page={{ page_obj.next_page_number }}&level_1={{v_level}}&q={{ value }}" role="button">下一页</a>
+                            <a class="btn btn-primary" href="?page={{ page_obj.paginator.num_pages }}&level_1={{v_level}}&q={{ value }}" role="button">最后一页</a>
+                        {% endif %}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

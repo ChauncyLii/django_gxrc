@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详情</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <script src="https://fastly.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row"> 
+
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-sm-12"> <h2>{{ detail_item.company_name }}</h2> </div>
+                        <div class="col-sm-12">工作地点:{{ detail_item.place}} </div>
+                        <div class="col-sm-12"> <a href="{{ detail_item.detail_url }}" class="btn btn-primary" onclick="doSubmit();">跳转到官网链接</a> </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-sm-3">薪资 {{ detail_item.salary }} </div>
+                        <div class="col-sm-3">学历要求:{{ detail_item.edu_requirements}} </div>
+                        <div class="col-sm-3">经验要求:{{ detail_item.exp_requirements}} </div>
+                        <div class="col-sm-3">更新日期:{{detail_item.release_date}} </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-sm-12"> <p>{{ detail_item.job_requirements }}</p> </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

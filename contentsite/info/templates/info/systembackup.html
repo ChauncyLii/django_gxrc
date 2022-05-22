@@ -1,0 +1,27 @@
+{% extends "layout/base.html" %}
+
+{% block search_contents %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">序号</th>
+      <th scope="col">姓名</th>
+      <th scope="col">年龄</th>
+      <th scope="col">身高</th>
+    </tr>
+  </thead>
+{% for i in post_list %}
+    <tbody>
+     <tr>
+       <th scope="row">{{i.id}}</th>
+       <td>{{i.name}}</td>
+       <td>{{i.age}}</td>
+       <td>{{i.height}}</td>
+     </tr>
+    </tbody>
+{% endfor %}
+</table>
+{% endblock %}
+
+
+
